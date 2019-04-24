@@ -15,4 +15,8 @@ router.put('/:title', (req, res) => {
   articleRoute.putArticle(req, res);
 });
 
+router.delete('/:title', (req, res) => {
+  articleRoute.deleteArticle(req, res);
+})
+
 module.exports = router;
