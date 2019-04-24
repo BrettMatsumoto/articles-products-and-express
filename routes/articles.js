@@ -8,9 +8,11 @@ const articleRoute = require('../database/articles.js');
 const PORT = 8000;
 
 router.post('/', (req, res) => {
-  console.log('test123')
-  console.log('body in articls.js: ', req.body)
-  articleRoute.postArticle(req, res)
-})
+  articleRoute.postArticle(req, res);
+});
+
+router.put('/:title', (req, res) => {
+  articleRoute.putArticle(req, res);
+});
 
 module.exports = router;
