@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const expressApp = express();
+const expressApp = express.Router();
 
 let articles = { articles: [] };
 
@@ -27,7 +27,7 @@ const postArticle = (req, res) => {
 const putArticle = (req, res) => {
   if (req.body) {
     for (let i = 0; i < articles.articles.length; i++) {
-      if (articles.articles[i].title === req.body.title) articles.articles[i] = req.body;
+      if (articles.articles[i].title === req) articles.articles[i] = req.body;
     }
     res.send({ success: true });
   } else {

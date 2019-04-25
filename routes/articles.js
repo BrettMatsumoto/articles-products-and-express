@@ -1,8 +1,7 @@
 'use strict';
 
 const express = require('express');
-const router = express();
-const bodyParser = require('body-parser');
+const router = express.Router();
 const articleRoute = require('../database/articles');
 
 router
@@ -20,7 +19,7 @@ router
   res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
 })
   .put((req, res) => {
-  articleRoute.putArticle(req, res);
+  articleRoute.putArticle(req.url, res);
 })
   .delete((req, res) => {
   articleRoute.deleteArticle(req, res);

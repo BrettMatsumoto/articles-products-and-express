@@ -15,5 +15,5 @@ app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 const server = app.listen(PORT, () => {
-  console.log(`Express is running at port ${PORT}.`);
+  console.log(`Express is listening on port ${PORT}.`);
 })
