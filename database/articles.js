@@ -12,13 +12,10 @@ const getAllArticles = () => {
 };
 
 const postArticle = (req, res) => {
-  if (req.body) {
-    articles.push(req.body);
-    res.send({ success: true });
-    console.log(articles);
-  } else {
-    res.send({ success: false });
-  }
+  if (!req.body) res.send({ success: false });
+
+  articles.push(req.body);
+  res.send({ success: true });
 };
 
 const putArticle = (req, res) => {
@@ -29,9 +26,8 @@ const putArticle = (req, res) => {
       }
     }
     res.send({ success: true });
-    console.log(articles);
   } else {
-    res.send({ success: false });
+    res.send({ succes: false });
   }
 };
 
@@ -43,15 +39,14 @@ const deleteArticle = (req, res) => {
       }
     }
     res.send({ success: true });
-    console.log(articles);
   } else {
     res.send({ success: false });
   }
 };
 
 module.exports = {
-  getAllArticles: getAllArticles,
-  postArticle: postArticle,
-  putArticle: putArticle,
-  deleteArticle: deleteArticle
+  getAllArticles,
+  postArticle,
+  putArticle,
+  deleteArticle,
 };
