@@ -10,7 +10,6 @@ const getAllArticles = () => {
 };
 
 const getSpecificArticle = (req) => {
-  console.log(req);
   for (let i = 0; i <= articles.articles.length; i++) {
     if (`/${articles.articles[i].title}` === req) {
       return articles.articles[i];

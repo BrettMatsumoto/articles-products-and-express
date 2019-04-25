@@ -3,13 +3,12 @@
 const express = require('express');
 const router = express();
 const bodyParser = require('body-parser');
-const articleRoute = require('../database/articles.js');
+const articleRoute = require('../database/articles');
 const PORT = 8000;
 
 router
   .route('/')
   .get((req, res) => {
-  articleRoute.getAllArticles();
   res.render('templates/articles/index', articleRoute.getAllArticles());
 })
   .post((req, res) => {
@@ -19,7 +18,6 @@ router
 router
   .route('/:title')
   .get((req,res) => {
-  // articleRoute.getSpecificArticle(req.url);
   res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
 })
   .put((req, res) => {
