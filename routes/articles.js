@@ -4,7 +4,6 @@ const express = require('express');
 const router = express();
 const bodyParser = require('body-parser');
 const articleRoute = require('../database/articles');
-const PORT = 8000;
 
 router
   .route('/')
