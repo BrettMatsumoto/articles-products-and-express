@@ -8,6 +8,7 @@ const PORT = 8000;
 
 router.get('/', (req, res) => {
   articleRoute.getAllArticles();
+  console.log('articleRoute.getAllArticles()', articleRoute.getAllArticles())
   res.render('templates/articles/article', articleRoute.getAllArticles());
 });
 router.post('/', (req, res) => {
