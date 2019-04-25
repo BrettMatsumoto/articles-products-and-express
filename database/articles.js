@@ -6,7 +6,7 @@ const expressApp = express();
 let articles = { articles: [] };
 
 const getAllArticles = () => {
-  return articles.articles;
+  return articles;
 };
 
 const postArticle = (req, res) => {
