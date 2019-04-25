@@ -6,18 +6,26 @@ const bodyParser = require('body-parser');
 const articleRoute = require('../database/articles.js');
 const PORT = 8000;
 
-router.get('/', (req, res) => {
+router
+  .route('/')
+  .get((req, res) => {
   articleRoute.getAllArticles();
-  console.log('articleRoute.getAllArticles()', articleRoute.getAllArticles())
-  res.render('templates/articles/article', articleRoute.getAllArticles());
-});
-router.post('/', (req, res) => {
+  res.render('templates/articles/index', articleRoute.getAllArticles());
+})
+  .post((req, res) => {
   articleRoute.postArticle(req, res);
 });
-router.put('/:title', (req, res) => {
+
+router
+  .route('/:title')
+  .get((req,res) => {
+  // articleRoute.getSpecificArticle(req.url);
+  res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
+})
+  .put((req, res) => {
   articleRoute.putArticle(req, res);
-});
-router.delete('/:title', (req, res) => {
+})
+  .delete((req, res) => {
   articleRoute.deleteArticle(req, res);
 });
 

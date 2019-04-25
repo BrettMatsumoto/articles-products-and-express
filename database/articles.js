@@ -9,18 +9,26 @@ const getAllArticles = () => {
   return articles;
 };
 
+const getSpecificArticle = (req) => {
+  console.log(req);
+  for (let i = 0; i <= articles.articles.length; i++) {
+    if (`/${articles.articles[i].title}` === req) {
+      return articles.articles[i];
+    }
+  }
+};
+
 const postArticle = (req, res) => {
   if (!req.body) res.send({ success: false });
 
   articles.articles.push(req.body);
-  console.log(articles.articles);
   res.send({ success: true });
 };
 
 const putArticle = (req, res) => {
   if (req.body) {
-    for (let i = 0; i < articles.length; i++) {
-      if (articles[i].title === req.body.title) articles.articles[i] = req.body;
+    for (let i = 0; i < articles.articles.length; i++) {
+      if (articles.articles[i].title === req.body.title) articles.articles[i] = req.body;
     }
     res.send({ success: true });
   } else {
@@ -41,6 +49,7 @@ const deleteArticle = (req, res) => {
 
 module.exports = {
   getAllArticles,
+  getSpecificArticle,
   postArticle,
   putArticle,
   deleteArticle,
