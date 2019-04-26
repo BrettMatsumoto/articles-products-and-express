@@ -8,16 +8,20 @@
   <title>Articles</title>
 </head>
 
-  <body>
-    <div class="content">
-      {{#each articles}}
-      <div class="articles">
-        <h1>{{title}}</h1>
-        <p>{{body}}</p>
-        <p>{{author}}</p>
-      </div>
-      {{/each}}
+<form action="/articles/new" method="get">
+  <button class="addItem">Add a new Article</button>
+</form>
+
+<body>
+  <div class="content">
+    {{#each articles}}
+    <div class="articles">
+      <h1>{{title}}</h1>
+      <p>{{body}}</p>
+      <p>{{author}}</p>
     </div>
-  </body>
+    {{/each}}
+  </div>
+</body>
 
 </html>
