@@ -18,20 +18,20 @@ const postArticle = (req) => {
   articles.articles.push(req);
 };
 
-const putArticle = (req) => {
+const putArticle = (reqUrl, reqTitle, reqBody, reqAuthor) => {
   for (let i = 0; i < articles.articles.length; i++) {
-    if (`/${articles.articles[i].title}` === req.url) {
-      articles.articles = articles.articles[i] = req.body;
+    if (`/${articles.articles[i].title}` === reqUrl) {
+      articles.articles[i].title = reqTitle;
+      articles.articles[i].body = reqBody;
+      articles.articles[i].author = reqAuthor;
     }
   }
 };
 
 const deleteArticle = (req) => {
-  for(let i = 0; i < articles.articles.length; i++) {
+  for (let i = 0; i < articles.articles.length; i++) {
     if (articles.articles[i].title === req) {
-      console.log(articles.articles)
       articles.articles.splice(i, 1);
-      console.log(articles.articles)
     }
   }
 };

@@ -20,7 +20,7 @@ router
     res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
   })
   .put((req, res) => {
-    articleRoute.putArticle(req);
+    articleRoute.putArticle(req.url, req.body.title, req.body.body, req.body.author);
     res.send({ success: true });
   })
   .delete((req, res) => {
