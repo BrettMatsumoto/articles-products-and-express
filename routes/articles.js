@@ -1,10 +1,10 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
+const database = express.Router();
 const articleRoute = require('../database/articles');
 
-router
+database
   .route('/')
   .get((req, res) => {
     res.render('templates/articles/index', articleRoute.getAllArticles());
@@ -14,7 +14,7 @@ router
     res.send({ success: true });
   });
 
-router
+database
   .route('/:title')
   .get((req, res) => {
     res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
@@ -28,4 +28,4 @@ router
     res.send({ success: true });
   });
 
-module.exports = router;
+module.exports = database;
