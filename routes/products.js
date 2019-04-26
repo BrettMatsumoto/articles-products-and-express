@@ -22,7 +22,7 @@ database
       res.render('templates/products/products', productRoute.getSpecificProduct(req.params.id));
     })
     .put((req, res) => {
-      productRoute.putProduct(req.params.id, req.body.title, req.body.price, req.body.inventory);
+      productRoute.putProduct(req.params.id, req.body.name, req.body.price, req.body.inventory);
       res.send({ success: true });
     })
     .delete((req, res) => {
