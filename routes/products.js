@@ -26,7 +26,7 @@ database
       res.send({ success: true });
     })
     .delete((req, res) => {
-      productRoute.deleteProduct(req.body.id);
+      productRoute.deleteProduct(req.params.id);
       res.send({ success: true });
     });
 
