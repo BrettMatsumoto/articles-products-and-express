@@ -32,7 +32,7 @@
 
   const deleteProduct = (req) => {
     for (let i = 0; i < products.products.length; i++) {
-      if (products.products[i].id === req) {
+      if (parseInt(products.products[i].id) === parseInt(req)) {
         products.products.splice(i, 1);
       }
     }
