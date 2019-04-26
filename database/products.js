@@ -14,7 +14,7 @@
       }
     }
   };
-  
+
   const postProduct = (count, reqName, reqPrice, reqInventory) => {
     let product = { id: count, name: reqName, price: reqPrice, inventory: reqInventory };
     products.products.push(product);
