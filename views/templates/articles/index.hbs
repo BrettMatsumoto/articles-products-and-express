@@ -7,12 +7,40 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Articles</title>
 </head>
+<body>
+  <h1>all articles</h1>
+    <div id="navBar">
+    <span class="nav" id="nav1">
+      <form action="/" method="get">
+        <button class="navButton" type="submit">Home</button>
+      </form>
+    </span>
+    <span class="navBullet">•</span>
+    <span class="nav" id="nav2">
+      <form action="/products" method="get">
+        <button class="navButton" type="submit">Products</button>
+      </form>
+    </span>
+    <span class="navBullet">•</span>
+    <span class="nav" id="nav3">
+      <form action="/articles" method="get">
+        <button class="navButton" type="submit">Articles</button>
+      </form>
+    </span>
+  </div>
 
-<form action="/articles/new" method="get">
-  <button class="addItem">Add a new Article</button>
+<form action="articles/new">
+  <button class="addItem" type="submit" >Add A New Article</button>
 </form>
 
-<body>
+<form action="articles/edit">
+  <button class="editItem">Edit An Existing Article</button>
+</form>
+
+<form action="articles/edit">
+  <button class="deleteItem">Delete an Existing Article</button>
+</form>
+
   <div class="content">
     {{#each articles}}
     <div class="articles">

@@ -5,7 +5,8 @@ const database = express.Router();
 const productRoute = require('../database/products');
 let count = 0;
 
-database.route('/')
+database
+  .route('/')
   .get((req, res) => {
     res.render('templates/products/index', productRoute.getAllProducts());
   })
@@ -15,7 +16,16 @@ database.route('/')
     res.send({ success: true });
   });
 
-database.route('/:id')
+database.route('/new').get((req, res) => {
+  res.render('templates/products/new');
+});
+
+database.route('/edit').get((req, res) => {
+  res.render('templates/products/edit');
+});
+
+database
+  .route('/:id')
   .get((req, res) => {
     res.render('templates/products/products', productRoute.getSpecificProduct(req.params.id));
   })

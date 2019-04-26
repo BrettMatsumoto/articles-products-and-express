@@ -5,26 +5,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>New Article</title>
+  <title>New</title>
 </head>
 
 <body>
-
-  <div>
-    <div>
-      <label for="title">Title</label>
-      <input type="text" id="title">
-    </div>
-    <div>
-      <label for="body">Body</label>
-      <input type="text" id="body">
-    </div>
-    <div>
-      <label for="author">Author</label>
-      <input type="text" id="author">
-    </div>
+  <h1>new article</h1>
+      <div id="navBar">
+    <span class="nav" id="nav1">
+      <form action="/" method="get">
+        <button class="navButton" type="submit">Home</button>
+      </form>
+    </span>
+    <span class="navBullet">•</span>
+    <span class="nav" id="nav2">
+      <form action="/products" method="get">
+        <button class="navButton" type="submit">Products</button>
+      </form>
+    </span>
+    <span class="navBullet">•</span>
+    <span class="nav" id="nav3">
+      <form action="/articles" method="get">
+        <button class="navButton" type="submit">Articles</button>
+      </form>
+    </span>
   </div>
+  <form action="new">
+    Article Title<br>
+    <input type="text" name="" id="">
+  </form>
 
+  <form action="new">
+    Article Author<br>
+    <input type="text" name="" id="">
+  </form>
+
+  <form action="new">
+    Article Content<br>
+    <input type="text" name="" id="">
+  </form>
+
+  <form action="new">
+    <button class="addItem" type="submit">Submit Article</button>
+  </form>
 </body>
 
 </html>

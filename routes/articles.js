@@ -13,6 +13,17 @@ database.route('/')
     res.send({ success: true });
   });
 
+database.route('/new')
+  .get((req, res) => {
+    res.render('templates/articles/new');
+  });
+
+  database.route('/edit')
+  .get((req, res) => {
+    res.render('templates/articles/edit');
+  })
+
+
 database.route('/:title')
   .get((req, res) => {
     res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));

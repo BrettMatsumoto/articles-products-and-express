@@ -8,17 +8,37 @@
   <title>Product</title>
 </head>
 
-  <body>
-    <div class="content">
+<body>
+    <div id="navBar">
+    <span class="nav" id="nav1">
+      <form action="/" method="get">
+        <button class="navButton" type="submit">Home</button>
+      </form>
+    </span>
+    <span class="navBullet">•</span>
+    <span class="nav" id="nav2">
+      <form action="/products" method="get">
+        <button class="navButton" type="submit">Products</button>
+      </form>
+    </span>
+    <span class="navBullet">•</span>
+    <span class="nav" id="nav3">
+      <form action="/articles" method="get">
+        <button class="navButton" type="submit">Articles</button>
+      </form>
+    </span>
+  </div>
+  <h1>single product</h1>
+  <div class="content">
 
-      <div class="product">
-        <h1>{{name}}</h1>
-        <p>{{id}}</p>
-        <p>{{price}}</p>
-        <p>{{inventory}}</p>
-      </div>
-
+    <div class="product">
+      <h1>{{name}}</h1>
+      <p>{{id}}</p>
+      <p>{{price}}</p>
+      <p>{{inventory}}</p>
     </div>
-  </body>
+
+  </div>
+</body>
 
 </html>
