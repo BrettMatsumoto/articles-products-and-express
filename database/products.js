@@ -14,11 +14,12 @@ const getSpecificProduct = (req) => {
   }
 };
 
-const postProduct = (req) => {
-  products.products.push(req);
+const postProduct = (count, reqName, reqPrice, reqInventory) => {
+  let product = { id: count, name: reqName, price: reqPrice, inventory: reqInventory };
+  products.products.push(product);
 };
 
-const putProduct = (reqUrl, reqTitle, reqBody, reqAuthor) => {
+const putProduct = (reqUrl, reqName, reqPrice, reqInventory) => {
   for (let i = 0; i < products.products.length; i++) {
     if (`/${products.products[i].title}` === reqUrl) {
       products.products[i].title = reqTitle;
