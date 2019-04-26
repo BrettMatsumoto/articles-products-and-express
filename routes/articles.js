@@ -4,8 +4,7 @@ const express = require('express');
 const database = express.Router();
 const articleRoute = require('../database/articles');
 
-database
-  .route('/')
+database.route('/')
   .get((req, res) => {
     res.render('templates/articles/index', articleRoute.getAllArticles());
   })
@@ -14,8 +13,7 @@ database
     res.send({ success: true });
   });
 
-database
-  .route('/:title')
+database.route('/:title')
   .get((req, res) => {
     res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
   })
