@@ -27,19 +27,12 @@
         <button class="navButton" type="submit">Articles</button>
       </form>
     </span>
+    <span class="navBullet">•</span>
+    <form action="products/new">
+      <button class="addItem" type="submit">Add A New Product</button>
+    </form>
   </div>
 
-  <form action="products/new">
-    <button class="addItem" type="submit">Add A New Product</button>
-  </form>
-
-  <form action="products/edit">
-    <button class="editItem">Edit An Existing Product</button>
-  </form>
-
-  <form action="products/edit">
-    <button class="deleteItem">Delete an Existing Product</button>
-  </form>
 
   <div class="content">
     {{#each products}}
@@ -48,6 +41,13 @@
       <p>{{id}}</p>
       <p>{{price}}</p>
       <p>{{inventory}}</p>
+      <form action="products/edit">
+        <button class="editItem">Edit An Existing Product</button>
+      </form>
+
+      <form action="products/edit">
+        <button class="deleteItem">Delete an Existing Product</button>
+      </form>
     </div>
     {{/each}}
   </div>

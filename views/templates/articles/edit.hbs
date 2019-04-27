@@ -30,18 +30,22 @@
     </span>
   </div>
 
-  <form action="/article" method="PUT">
+  <div>
+    <h1>Current Article</h1>
+  </div>
+
+  <form action="?_method=PUT" method="POST">
 
     Article Title
-    <input type="text" name="title" id="">
+    <input type="text" name="title" id="" value = "{{title}}">
 
     Article Author
-    <input type="text" name="author" id="">
+    <input type="text" name="author" id="" value = "{{author}}">
 
     Article Content
-    <input type="text" name="body" id="">
+    <input type="text" name="body" id="" value="{{body}}">
 
-    <button class="addItem" type="submit">Submit Article</button>
+    <button class="addItem" type="submit">Resubmit Article</button>
   </form>
 </body>
 

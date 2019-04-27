@@ -7,39 +7,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Articles</title>
 </head>
+
 <body>
   <h1>all articles</h1>
-    <div id="navBar">
-    <span class="nav" id="nav1">
-      <form action="/" method="get">
-        <button class="navButton" type="submit">Home</button>
-      </form>
-    </span>
+  <div id="navBar">
+    <form action="/" method="get">
+      <button class="navButton" type="submit">Home</button>
+    </form>
+
     <span class="navBullet">•</span>
-    <span class="nav" id="nav2">
-      <form action="/products" method="get">
-        <button class="navButton" type="submit">Products</button>
-      </form>
-    </span>
+
+    <form action="/products" method="get">
+      <button class="navButton" type="submit">Products</button>
+    </form>
+
     <span class="navBullet">•</span>
-    <span class="nav" id="nav3">
-      <form action="/articles" method="get">
-        <button class="navButton" type="submit">Articles</button>
-      </form>
-    </span>
+
+    <form action="/articles" method="get">
+      <button class="navButton" type="submit">Articles</button>
+    </form>
+
+    <span class="navBullet">•</span>
+
+    <form action="articles/new">
+      <button class="addItem" type="submit">Add A New Article</button>
+    </form>
+
   </div>
 
-<form action="articles/new">
-  <button class="addItem" type="submit" >Add A New Article</button>
-</form>
-
-<form action="articles/edit">
-  <button class="editItem">Edit An Existing Article</button>
-</form>
-
-<form action="articles/edit">
-  <button class="deleteItem">Delete an Existing Article</button>
-</form>
 
   <div class="content">
     {{#each articles}}
@@ -47,6 +42,10 @@
       <h1>{{title}}</h1>
       <p>{{body}}</p>
       <p>{{author}}</p>
+
+      <form action="articles/{{title}}">
+        <button class="specificButton">View This Article</button>
+      </form>
     </div>
     {{/each}}
   </div>

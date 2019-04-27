@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}test</title>
+  <title>{{title}}</title>
 </head>
 
 <body>
   <h1>single article</h1>
-  <h1>new article</h1>
-      <div id="navBar">
+  <div id="navBar">
     <span class="nav" id="nav1">
       <form action="/" method="get">
         <button class="navButton" type="submit">Home</button>
@@ -34,6 +34,14 @@
       <h1>{{title}}</h1>
       <p>{{body}}</p>
       <p>{{author}}</p>
+
+      <form action="/articles/{{title}}/edit">
+        <button class="editItem">Edit This Article</button>
+      </form>
+
+      <form action="edit">
+        <button class="deleteItem">Delete This Article</button>
+      </form>
     </div>
   </div>
 </body>
