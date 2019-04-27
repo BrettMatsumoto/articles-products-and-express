@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Edit</title>
 </head>
+
 <body>
   <h1>edit article</h1>
-      <div id="navBar">
+  <div id="navBar">
     <span class="nav" id="nav1">
       <form action="/" method="get">
         <button class="navButton" type="submit">Home</button>
@@ -27,5 +29,20 @@
       </form>
     </span>
   </div>
+
+  <form action="/article" method="PUT">
+
+    Article Title
+    <input type="text" name="title" id="">
+
+    Article Author
+    <input type="text" name="author" id="">
+
+    Article Content
+    <input type="text" name="body" id="">
+
+    <button class="addItem" type="submit">Submit Article</button>
+  </form>
 </body>
+
 </html>

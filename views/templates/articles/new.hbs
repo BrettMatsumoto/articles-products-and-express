@@ -10,7 +10,7 @@
 
 <body>
   <h1>new article</h1>
-      <div id="navBar">
+  <div id="navBar">
     <span class="nav" id="nav1">
       <form action="/" method="get">
         <button class="navButton" type="submit">Home</button>
@@ -29,22 +29,18 @@
       </form>
     </span>
   </div>
-  <form action="new">
-    Article Title<br>
-    <input type="text" name="" id="">
-  </form>
 
-  <form action="new">
-    Article Author<br>
-    <input type="text" name="" id="">
-  </form>
+  <form action="/articles" method="POST">
 
-  <form action="new">
-    Article Content<br>
-    <input type="text" name="" id="">
-  </form>
+    Article Title
+    <input type="text" name="title" id="">
 
-  <form action="new">
+    Article Author
+    <input type="text" name="author" id="">
+
+    Article Content
+    <input type="text" name="body" id="">
+
     <button class="addItem" type="submit">Submit Article</button>
   </form>
 </body>
