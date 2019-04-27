@@ -1,7 +1,7 @@
 'use strict';
 
 (function RMP() {
-  let articles = { articles: [] };
+  let articles = { articles: [{ title: 'stuf', body: 'morestuff', author: 'laststuff' }] };
 
   const getAllArticles = () => {
     return articles;
@@ -9,7 +9,7 @@
 
   const getSpecificArticle = (req) => {
     for (let i = 0; i <= articles.articles.length - 1; i++) {
-      if (`/${articles.articles[i].title}` === req) {
+      if (articles.articles[i].title === req) {
         return articles.articles[i];
       }
     }
@@ -20,8 +20,9 @@
   };
 
   const putArticle = (reqUrl, reqTitle, reqBody, reqAuthor) => {
+    console.log('test hello')
     for (let i = 0; i < articles.articles.length; i++) {
-      if (`/${articles.articles[i].title}` === reqUrl) {
+      if (`${articles.articles[i].title}` === reqUrl) {
         articles.articles[i].title = reqTitle;
         articles.articles[i].body = reqBody;
         articles.articles[i].author = reqAuthor;

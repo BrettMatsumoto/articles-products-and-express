@@ -4,33 +4,35 @@ const express = require('express');
 const database = express.Router();
 const articleRoute = require('../database/articles');
 
-database.route('/')
+database
+  .route('/')
   .get((req, res) => {
-    res.render('templates/articles/index', articleRoute.getAllArticles());
+    let articles = articleRoute.getAllArticles();
+    res.render('templates/articles/index', articles);
   })
   .post((req, res) => {
     articleRoute.postArticle(req.body, res);
-    res.send({ success: true });
+    res.redirect('/articles');
   });
 
-database.route('/new')
-  .get((req, res) => {
-    res.render('templates/articles/new');
-  });
+database.route('/new').get((req, res) => {
+  res.render('templates/articles/new');
+});
 
-  database.route('/edit')
-  .get((req, res) => {
-    res.render('templates/articles/edit');
-  })
+database.route('/:title/edit').get((req, res) => {
+  let singleArticle = articleRoute.getSpecificArticle(req.params.title);
+  res.render('templates/articles/edit', singleArticle);
+});
 
-
-database.route('/:title')
+database
+  .route('/:title')
   .get((req, res) => {
-    res.render('templates/articles/article', articleRoute.getSpecificArticle(req.url));
+    let singleArticle = articleRoute.getSpecificArticle(req.params.title);
+    res.render('templates/articles/article', singleArticle);
   })
   .put((req, res) => {
-    articleRoute.putArticle(req.url, req.body.title, req.body.body, req.body.author);
-    res.send({ success: true });
+    let editArticle = articleRoute.putArticle(req.url, req.body.title, req.body.body, req.body.author);
+    res.render('templates/articles/edit', editArticle);
   })
   .delete((req, res) => {
     articleRoute.deleteArticle(req.body.title);

@@ -13,7 +13,7 @@ database
   .post((req, res) => {
     count++;
     productRoute.postProduct(count, req.body.name, req.body.price, req.body.inventory);
-    res.send({ success: true });
+    res.redirect('/products');
   });
 
 database.route('/new').get((req, res) => {
