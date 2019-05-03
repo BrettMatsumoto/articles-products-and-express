@@ -2,7 +2,7 @@
 
 const express = require('express');
 const database = express.Router();
-const productRoute = require('../database/products');
+const knex = require('../database/products');
 let count = 0;
 
 database

@@ -2,7 +2,7 @@
 
 const express = require('express');
 const database = express.Router();
-const articleRoute = require('../database/articles');
+const knex = require('../database/articles');
 
 database
   .route('/')
