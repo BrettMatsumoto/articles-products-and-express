@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const knex = require('./database');
 const app = express();
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
