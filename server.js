@@ -20,7 +20,6 @@ app.use(methodOveride('_method'));
 app.use(express.static('./main'))
 
 app.get('/', (req, res) => {
-  res.send('stress test')
   res.render('./main');
 });
 

@@ -14,9 +14,13 @@ database.get('/', (req, res) => {
     });
 });
 
+database.get('/new', (req, res) => {
+  console.log('test');
+  res.render('templates/articles/new')
+})
+
 database.get('/:title', (req, res) => {
   let articleTitle = req.params.title //because /:****** knows that what comes after the : is a request parameter
-  console.log(articleTitle)
   return knex
     .select('*')
     .from('articles')
@@ -38,6 +42,21 @@ database.get('/:title/edit', (req, res) => {
     })
     .then((result) => {
       res.render('templates/articles/edit', result[0])
+    })
+})
+
+database.put('/:title', (req, res) => {
+  let articleTitle = req.params.title
+  return knex('products')
+    .where({
+      title : articleTitle
+    })
+    .update({
+      body: `${req.body.body}`,
+      author: `${req.body.author}`
+    })
+    .then(() => {
+      res.render('templates/articles')
     })
 })
 

@@ -28,4 +28,17 @@ database.get('/edit', (req, res) => {
     })
 })
 
+database.get('/:title', (req, res) => {
+  let productName = req.params.name
+  return knex
+    .select('*')
+    .from('products')
+    .where({
+      name: productName
+    })
+    .then((result) => {
+      res.render('templates/products/products')
+    })
+})
+
 module.exports = database;

@@ -36,17 +36,13 @@
 
   <div class="content">
     {{#each products}}
-    <div class="product">
+    <div class="products">
       <h1>{{name}}</h1>
-      <p>{{id}}</p>
       <p>{{price}}</p>
       <p>{{inventory}}</p>
-      <form action="products/edit">
-        <button class="editItem">Edit An Existing Product</button>
-      </form>
 
-      <form action="products/edit">
-        <button class="deleteItem">Delete an Existing Product</button>
+      <form action="products/products">
+        <button class="specificButton">View This Product</button>
       </form>
     </div>
     {{/each}}
