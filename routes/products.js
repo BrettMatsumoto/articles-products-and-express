@@ -2,40 +2,30 @@
 
 const express = require('express');
 const database = express.Router();
-const knex = require('../database/products');
+const knex = require('../database');
 let count = 0;
 
-database
-  .route('/')
-  .get((req, res) => {
-    res.render('templates/products/index', productRoute.getAllProducts());
-  })
-  .post((req, res) => {
-    count++;
-    productRoute.postProduct(count, req.body.name, req.body.price, req.body.inventory);
-    res.redirect('/products');
-  });
+database.get('/', (req, res) => {
+  return knex
+    .select('*')
+    .from('products')
+    .then((result) => {
+      let obj = { products : result };
+      res.render('templates/products/index', obj)
+    })
+})
 
-database.route('/new').get((req, res) => {
-  res.render('templates/products/new');
-});
-
-database.route('/edit').get((req, res) => {
-  res.render('templates/products/edit');
-});
-
-database
-  .route('/:id')
-  .get((req, res) => {
-    res.render('templates/products/products', productRoute.getSpecificProduct(req.params.id));
-  })
-  .put((req, res) => {
-    productRoute.putProduct(req.params.id, req.body.name, req.body.price, req.body.inventory);
-    res.send({ success: true });
-  })
-  .delete((req, res) => {
-    productRoute.deleteProduct(req.params.id);
-    res.send({ success: true });
-  });
+database.get('/edit', (req, res) => {
+  let productTitle = req.params.title
+  return knex
+    .select('*')
+    .from('products')
+    .where({
+      title: productTitle 
+    })
+    .then((result) => {
+      res.render('templates/articles/edit', result[0])
+    })
+})
 
 module.exports = database;

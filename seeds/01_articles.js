@@ -5,9 +5,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('articles').insert([
-        {title:'What a world', body:"isn't it wonderful", author:'Brahda Iz', urlTitle:'Chee'},
-        {title:'Got Milk?', body:"Milk man be coming", author:'Parks and Palaces', urlTitle:'Gotcha'},
-        {title:"Fish don't fry in the kitchen", body:"Ohh lala", author:'Bloodhound Gang', urlTitle:'FoxtrotUnicornCharlieKilo'}
+        {title:'What a world', body:"isn't it wonderful", author:'Brahda Iz', urltitle:'Chee'},
+        {title:'Got Milk', body:"Milk man be coming", author:'Parks and Palaces', urltitle:'Gotcha'},
+        {title:"Fish don't fry in the kitchen", body:"Ohh lala", author:'Bloodhound Gang', urltitle:'FoxtrotUnicornCharlieKilo'}
       ]);
     });
 };

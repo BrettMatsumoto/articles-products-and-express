@@ -1,12 +1,12 @@
 'use strict';
 
-const express = require('express');
 const knex = require('./database');
+const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOveride = require('method-override');
-const urlEncodedParser = bodyParser.urlencoded({ extended: true });
+const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 const articleRoute = require('./routes/articles');
 const productRoute = require('./routes/products');
 const PORT = 8000;
@@ -20,6 +20,7 @@ app.use(methodOveride('_method'));
 app.use(express.static('./main'))
 
 app.get('/', (req, res) => {
+  res.send('stress test')
   res.render('./main');
 });
 

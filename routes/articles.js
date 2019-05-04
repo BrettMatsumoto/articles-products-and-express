@@ -2,41 +2,43 @@
 
 const express = require('express');
 const database = express.Router();
-const knex = require('../database/articles');
+const knex = require('../database');
 
-database
-  .route('/')
-  .get((req, res) => {
-    let articles = articleRoute.getAllArticles();
-    res.render('templates/articles/index', articles);
-  })
-  .post((req, res) => {
-    articleRoute.postArticle(req.body, res);
-    res.redirect('/articles');
-  });
-
-database.route('/new').get((req, res) => {
-  res.render('templates/articles/new');
+database.get('/', (req, res) => {
+  return knex
+    .select('*')
+    .from('articles')
+    .then((result) => {
+      let obj = { articles: result };  //handlebars needs an object but result is an array of objects so put an object around it
+      res.render('templates/articles/index', obj);
+    });
 });
 
-database.route('/:title/edit').get((req, res) => {
-  let singleArticle = articleRoute.getSpecificArticle(req.params.title);
-  res.render('templates/articles/edit', singleArticle);
-});
+database.get('/:title', (req, res) => {
+  let articleTitle = req.params.title //because /:****** knows that what comes after the : is a request parameter
+  console.log(articleTitle)
+  return knex
+    .select('*')
+    .from('articles')
+    .where({
+      title: articleTitle
+    })
+    .then((result) => {
+      res.render('templates/articles/article', result[0]) //since this is only 1 we need [0] since result is an array of objects
+    })
+})
 
-database
-  .route('/:title')
-  .get((req, res) => {
-    let singleArticle = articleRoute.getSpecificArticle(req.params.title);
-    res.render('templates/articles/article', singleArticle);
-  })
-  .put((req, res) => {
-    let editArticle = articleRoute.putArticle(req.url, req.body.title, req.body.body, req.body.author);
-    res.render('templates/articles/edit', editArticle);
-  })
-  .delete((req, res) => {
-    articleRoute.deleteArticle(req.body.title);
-    res.send({ success: true });
-  });
+database.get('/:title/edit', (req, res) => {
+  let articleTitle = req.params.title
+  return knex
+    .select('*')
+    .from('articles')
+    .where({
+      title: articleTitle
+    })
+    .then((result) => {
+      res.render('templates/articles/edit', result[0])
+    })
+})
 
 module.exports = database;

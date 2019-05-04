@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('title', 255).notNull();
     table.string('body', 255).notNull();
     table.string('author', 255).notNull();
-    table.string('urlTitle', 255).notNull();
+    table.string('urltitle', 255).notNull();
   })
 };
 
